@@ -1,17 +1,18 @@
 package hexagonal_spring.webapp.web_account.adapter.out.persistense;
 
-import lombok.AllArgsConstructor;
+import hexagonal_spring.webapp.domain.Account;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "account")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 class AccountJpaEntity {
+
+	@Version
+	@GeneratedValue
+	private Integer version;
 
 	@Id
 	@GeneratedValue
@@ -20,4 +21,9 @@ class AccountJpaEntity {
 	@Column
 	private int balance;
 
+	public AccountJpaEntity update(Account accountUpdated) {
+		this.balance = accountUpdated.getBalance();
+		this.id = accountUpdated.getId();
+		return this;
+	}
 }

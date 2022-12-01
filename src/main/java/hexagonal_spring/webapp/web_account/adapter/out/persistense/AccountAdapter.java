@@ -12,16 +12,19 @@ import javax.persistence.EntityNotFoundException;
 @Repository
 class AccountAdapter implements LoadAccount, UpdateAccount{
 	private final AccountJpaRepository accountJpaRepository;
+
+	//A common reference must be saved for optimistic lock(@version ) to work on .save()
+	private AccountJpaEntity account;
 	
 	@Override
 	public Account loadAccount(int id) {
-		AccountJpaEntity account = accountJpaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+		account = accountJpaRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 		return new Account(account.getId(), account.getBalance());
 	}
 
 	@Override
-	public void updateAccount(Account account) {
-		accountJpaRepository.save(new AccountJpaEntity(account.getId(), account.getBalance()));
+	public void updateAccount(Account accountUpdated) {
+		accountJpaRepository.save(account.update(accountUpdated));
 	}
 	
 }

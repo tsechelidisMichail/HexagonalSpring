@@ -17,7 +17,7 @@ class WithdrawService implements WithdrawUseCase {
     private final UpdateAccount updateAccount;
 
     @Override
-    public synchronized String withdraw(CommandBalanceDTO data) {
+    public String withdraw(CommandBalanceDTO data) {
         int money = data.getBalance();
         int id = data.getId();
 

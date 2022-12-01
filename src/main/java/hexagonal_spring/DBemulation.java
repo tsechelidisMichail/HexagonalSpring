@@ -28,14 +28,14 @@ public abstract class DBemulation {
                 //
             }
 
-            query = "CREATE TABLE IF NOT EXISTS account(id int, balance int);";
+            query = "CREATE TABLE IF NOT EXISTS account(id int PRIMARY KEY, balance int, version int);";
             try{stmt.executeUpdate(query);}catch(Exception e) {
                 //
             }
 
             query = """
-                    INSERT INTO account (id, balance)
-                    SELECT * FROM (SELECT 1, 500) AS tmp
+                    INSERT INTO account (id, balance, version)
+                    SELECT * FROM (SELECT 1, 500, 0) AS tmp
                     WHERE NOT EXISTS (
                         SELECT id FROM account WHERE id = 1
                     ) LIMIT 1;""";
