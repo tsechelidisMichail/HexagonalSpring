@@ -1,4 +1,4 @@
-package hexagonal_spring.webapp.web_account.adapter.in.web;
+package hexagonal_spring.webapp.web_account.adapter.in.rest;
 
 import hexagonal_spring.webapp.web_account.application.dto.CommandBalanceDTO;
 import hexagonal_spring.webapp.web_account.application.port.in.DepositUseCase;

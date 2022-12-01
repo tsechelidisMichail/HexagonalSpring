@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "hexagonal_spring.webapp.web_account.adapter.in.grpc.generated";
+
+message DepositRequest{
+  int32 id = 1;
+  int32 amount = 2;
+}
+message DepositResponse {
+  string response = 1;
+}
+
+message WithdrawRequest{
+  int32 id = 1;
+  int32 amount = 2;
+}
+message WithdrawResponse {
+  string response = 1;
+}
+
+service DepositController {
+  rpc deposit(DepositRequest) returns (DepositResponse) {};
+}
+
+service WithdrawController {
+  rpc withdraw(WithdrawRequest) returns (WithdrawResponse) {};
+}

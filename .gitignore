@@ -33,3 +33,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Protobuff generated code ###
+/src/main/java/hexagonal_spring/webapp/**/grpc_generated

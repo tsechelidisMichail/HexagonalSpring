@@ -1,4 +1,4 @@
-package hexagonal_spring.webapp.web_account.adapter.in.web;
+package hexagonal_spring.webapp.web_account.adapter.in.rest;
 
 import hexagonal_spring.webapp.web_account.application.dto.CommandBalanceDTO;
 import hexagonal_spring.webapp.web_account.application.port.in.WithdrawUseCase;
@@ -13,7 +13,7 @@ class WithdrawController {
     private final WithdrawUseCase withdrawUseCase;
 
     @PostMapping(path = "/account/withdraw/{id}/{amount}")
-    String deposit(@PathVariable int id, @PathVariable int amount) {
+    String withdraw(@PathVariable int id, @PathVariable int amount) {
         CommandBalanceDTO data = new CommandBalanceDTO(id, amount);
         return withdrawUseCase.withdraw(data);
     }
