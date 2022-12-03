@@ -1,18 +1,18 @@
 package hexagonal_spring.webapp.domain;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @AllArgsConstructor
 public class Account {
 
 	@NotNull
-	private int id;
+	private Integer id;
 
 	@NotNull
-	private int balance;
+	private Integer balance;
 
 	public boolean deposit(int data) {
 		if(data>0) {

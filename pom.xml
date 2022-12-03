@@ -42,12 +42,20 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>23.0.0</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- @@@@@@@@@@ FOR GRPC @@@@@@@@@@ -->
@@ -68,8 +76,15 @@
 			<artifactId>grpc-protobuf</artifactId>
 			<version>${grpc.version}</version>
 		</dependency>
-
 		<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+		<!-- ########## For Kafka ######### -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<!-- ############################## -->
 
 	</dependencies>
 
