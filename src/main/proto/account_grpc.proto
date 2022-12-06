@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "hexagonal_spring.webapp.web_account.adapter.in.grpc.generated";
+option java_package = "hexagonal_spring.webapp.web_account.adapter.in.grpc.grpc_generated";
 
 message DepositRequest{
   int32 id = 1;
